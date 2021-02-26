@@ -1,11 +1,10 @@
-var TShirt = require('./tshirt')
-var CreditDebit = require('./creditdebit')
-var MoneyBank = require('./moneybank')
-var Cash = require('./cash')
-var PaymentStrategy = require('./paymentstrategy')
+var TShirt = require('./tshirt');
+var CreditDebit = require('./payment_methods/creditdebit');
+var MoneyBank = require('./payment_methods/moneybank');
+var Cash = require('./payment_methods/cash');
+var PaymentStrategy = require('./paymentstrategy');
 
 // console.log(new Color().colors)
-
 
 // let myTShirt = new TShirt(true, "AAA", 'XS', 'RED', 'WOOL')
 // console.log(myTShirt)
@@ -19,23 +18,24 @@ var PaymentStrategy = require('./paymentstrategy')
 //     console.log(new TShirt(true))
 // }
 
-var myTShirt = new TShirt(true)
-// console.log(myTShirt.toString())
+var myTShirt = new TShirt(true);
+console.log(myTShirt);
+console.log(myTShirt.toString());
 
 // console.log(new CreditDebit(myTShirt).pay())
 // console.log(new MoneyBank(myTShirt).pay())
 // console.log(new Cash(myTShirt).pay())
 
-var cd = new CreditDebit(myTShirt)
-var mb = new MoneyBank(myTShirt)
-var cash = new Cash(myTShirt)
+var cd = new CreditDebit(myTShirt);
+var mb = new MoneyBank(myTShirt);
+var cash = new Cash(myTShirt);
 
-var paymentStrategy = new PaymentStrategy()
-paymentStrategy.type = cd // (mb) (cash)
-console.log(paymentStrategy.pay())
+var paymentStrategy = new PaymentStrategy();
+paymentStrategy.type = cd; // (mb) (cash)
+console.log(paymentStrategy.pay());
 
-paymentStrategy.type = mb // (mb) (cash)
-console.log(paymentStrategy.pay())
+paymentStrategy.type = mb; // (mb) (cash)
+console.log(paymentStrategy.pay());
 
-paymentStrategy.type = cash // (mb) (cash)
-console.log(paymentStrategy.pay())
+paymentStrategy.type = cash; // (mb) (cash)
+console.log(paymentStrategy.pay());
